@@ -1,0 +1,12 @@
+{
+  "name": "PEV-Controller",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/ooookai/PEV-Controller.git",
+  "author": "ooookai <ooookai@gmail.com>",
+  "license": "MIT",
+  "private": true,
+  "dependencies": {
+    "noble": "^1.9.1"
+  }
+}
