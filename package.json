@@ -7,6 +7,7 @@
   "license": "MIT",
   "private": true,
   "dependencies": {
-    "noble": "^1.9.1"
+    "noble": "^1.9.1",
+    "rosnodejs": "^3.0.0"
   }
 }
