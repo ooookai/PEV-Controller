@@ -4,7 +4,7 @@ const rosnodejs = require('rosnodejs')
 const std_msgs = rosnodejs.require('std_msgs').msg
 const ColorRGBA = std_msgs.ColorRGBA
 
-const _ = require('lodash')
+// const _ = require('lodash')
 
 const admin = require('firebase-admin')
 
@@ -26,9 +26,6 @@ const FirebaseApp = admin.initializeApp({
 
 const db = FirebaseApp.database()
 
-const Color = require('color')
-let color = Color({ h: 120, s: 20, l: 10 })
-
 rosnodejs.initNode('/color_controller').then(nh => {
   // nh: node handle
 
@@ -48,6 +45,8 @@ rosnodejs.initNode('/color_controller').then(nh => {
   }
 
   /* Test
+  const Color = require('color')
+  let color = Color({ h: 120, s: 20, l: 10 })
   setInterval(() => { 
     const c = color
       .rotate(_.random(360))
