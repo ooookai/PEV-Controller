@@ -61,3 +61,9 @@ typings/
 .next
 
 \.vscode/
+
+# vue build
+dist/
+
+# MAC_OS file
+\.DS_Store

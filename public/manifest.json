@@ -1,0 +1,21 @@
+{
+  "name": "PEV-Controller",
+  "short_name": "PEV-Controller",
+  "icons": [
+    {
+      "src": "./img/icons/android-chrome-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "./img/icons/android-chrome-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ],
+  "scope": "/PEV-Controller/",
+  "start_url": "/PEV-Controller/index.html",
+  "display": "standalone",
+  "background_color": "#FEF3E8",
+  "theme_color": "#FFFAF6"
+}

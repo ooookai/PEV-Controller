@@ -7,19 +7,45 @@
   "license": "MIT",
   "private": true,
   "scripts": {
-    "lint": "eslint ."
+    "eslint": "eslint .",
+    "serve": "vue-cli-service serve",
+    "build": "vue-cli-service build",
+    "lint": "vue-cli-service lint"
   },
   "dependencies": {
     "color": "^3.1.0",
+    "firebase": "^5.5.8",
     "firebase-admin": "^6.4.0",
     "lodash": "^4.17.11",
+    "material-icons": "^0.2.3",
     "noble": "^1.9.1",
+    "register-service-worker": "^1.0.0",
     "rosnodejs": "^3.0.0",
-    "rxfire": "^3.2.1"
+    "rxfire": "^3.2.1",
+    "rxjs": "^6.3.3",
+    "vue": "^2.5.17",
+    "vue-color": "^2.7.0",
+    "vue-progress-path": "^0.0.2",
+    "vue-router": "^3.0.1",
+    "vue-rx": "^6.0.1",
+    "vue-timeago": "^5.0.0",
+    "vuefire": "^1.4.5",
+    "vuesax": "^3.8.0",
+    "vuex": "^3.0.1"
   },
   "devDependencies": {
+    "@vue/cli-plugin-babel": "^3.1.1",
+    "@vue/cli-plugin-eslint": "^3.1.1",
+    "@vue/cli-plugin-pwa": "^3.1.1",
+    "@vue/cli-service": "^3.1.1",
+    "@vue/eslint-config-prettier": "^4.0.0",
+    "babel-eslint": "^10.0.1",
     "eslint": "^5.10.0",
-    "eslint-plugin-prettier": "^3.0.0",
-    "prettier": "^1.15.3"
+    "eslint-plugin-vue": "^5.0.0-0",
+    "lint-staged": "^7.2.2",
+    "node-sass": "^4.9.0",
+    "sass-loader": "^7.0.1",
+    "vue-cli-plugin-vuesax": "^1.0.0",
+    "vue-template-compiler": "^2.5.17"
   }
 }
