@@ -10,6 +10,8 @@
     "lint": "eslint ."
   },
   "dependencies": {
+    "color": "^3.1.0",
+    "lodash": "^4.17.11",
     "noble": "^1.9.1",
     "rosnodejs": "^3.0.0"
   },
