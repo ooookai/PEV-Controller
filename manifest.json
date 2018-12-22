@@ -16,6 +16,6 @@
   "scope": "/PEV-Controller/",
   "start_url": "/PEV-Controller/index.html",
   "display": "standalone",
-  "background_color": "#FFD3A8",
-  "theme_color": "#FFE1C4"
+  "background_color": "#FEF3E8",
+  "theme_color": "#FFFAF6"
 }
