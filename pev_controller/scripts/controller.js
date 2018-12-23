@@ -2,6 +2,7 @@
 
 const rosnodejs = require('rosnodejs')
 const std_msgs = rosnodejs.require('std_msgs').msg
+const geometry_msgs = rosnodejs.require('geometry_msgs').msg
 
 // const _ = require('lodash')
 
@@ -31,6 +32,7 @@ rosnodejs.initNode('/controller').then(nh => {
   const pub = {
     led_strip_color: nh.advertise('/led_strip_color', std_msgs.ColorRGBA),
     led_strip_state: nh.advertise('/led_strip_state', std_msgs.String),
+    eye_position: nh.advertise('/eye_position', geometry_msgs.Point),
   }
 
   const publisher = {
@@ -43,6 +45,13 @@ rosnodejs.initNode('/controller').then(nh => {
 
       const s = new std_msgs.String({ data: `${state}` })
       pub.led_strip_state.publish(s)
+    },
+    Eye: ({ x, y }) => {
+      const p = new geometry_msgs.Point()
+      p.x = parseInt(x)
+      p.y = parseInt(y)
+      p.z = 0
+      pub.eye_position.publish(p)
     },
   }
 

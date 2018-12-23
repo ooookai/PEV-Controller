@@ -19,7 +19,7 @@ export default {
   name: 'Home',
   data() {
     return {
-      controllers: ['LEDStrip'],
+      controllers: ['LEDStrip', 'Eye'],
     }
   },
   methods: {

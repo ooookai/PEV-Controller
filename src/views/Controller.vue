@@ -9,11 +9,13 @@
 <script>
 // @ is an alias to /src
 import LEDStrip from '@/components/controllers/LEDStrip'
+import Eye from '@/components/controllers/Eye'
 
 export default {
   name: 'Controller',
   components: {
     LEDStrip,
+    Eye,
   },
   data() {
     return {}
