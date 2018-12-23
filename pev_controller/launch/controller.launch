@@ -1,4 +1,4 @@
 <launch>
-  <node pkg="pev_controller" type="color_controller.js" name="color_controller" output="screen">
+  <node pkg="pev_controller" type="controller.js" name="controller" output="screen">
   </node>
 </launch>

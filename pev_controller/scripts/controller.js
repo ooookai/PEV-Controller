@@ -2,7 +2,6 @@
 
 const rosnodejs = require('rosnodejs')
 const std_msgs = rosnodejs.require('std_msgs').msg
-const ColorRGBA = std_msgs.ColorRGBA
 
 // const _ = require('lodash')
 
@@ -26,21 +25,24 @@ const FirebaseApp = admin.initializeApp({
 
 const db = FirebaseApp.database()
 
-rosnodejs.initNode('/color_controller').then(nh => {
+rosnodejs.initNode('/controller').then(nh => {
   // nh: node handle
 
   const pub = {
-    color: nh.advertise('/led_strip_color', 'std_msgs/ColorRGBA'),
+    led_strip_color: nh.advertise('/led_strip_color', std_msgs.ColorRGBA),
+    led_strip_state: nh.advertise('/led_strip_state', std_msgs.String),
   }
 
   const publisher = {
-    color: ({ r, g, b }) => {
-      const msg = new ColorRGBA()
+    LEDStrip: ({ r, g, b, state }) => {
+      const c = new std_msgs.ColorRGBA()
+      c.r = parseInt(r)
+      c.g = parseInt(g)
+      c.b = parseInt(b)
+      pub.led_strip_color.publish(c)
 
-      msg.r = parseInt(r)
-      msg.g = parseInt(g)
-      msg.b = parseInt(b)
-      pub.color.publish(msg)
+      const s = new std_msgs.String({ data: `${state}` })
+      pub.led_strip_state.publish(s)
     },
   }
 
@@ -74,6 +76,6 @@ rosnodejs.initNode('/color_controller').then(nh => {
     )
     .subscribe(control => {
       console.log(control)
-      publisher[control.key](control.value)
+      if (publisher[control.key]) publisher[control.key](control.value)
     })
 })
