@@ -1,20 +1,28 @@
 <template>
-  <div id="app"><RouterView></RouterView></div>
+  <div>
+    <h2>Controller {{ controller }}</h2>
+
+    <Component :is="controller"></Component>
+  </div>
 </template>
 
 <script>
 // @ is an alias to /src
-import Color from '@/components/panels/Color'
+import LEDStrip from '@/components/controllers/LEDStrip'
 
 export default {
-  name: 'App',
+  name: 'Controller',
   components: {
-    Color,
+    LEDStrip,
   },
   data() {
     return {}
   },
-
+  computed: {
+    controller() {
+      return this.$route.params.controller
+    },
+  },
   created() {},
   methods: {},
 }
@@ -31,5 +39,13 @@ body {
 
 #app {
   text-align: center;
+}
+</style>
+
+<style lang="scss" scoped>
+#colorTest {
+  margin: 50px;
+  max-width: 80%;
+  max-height: 50%;
 }
 </style>
