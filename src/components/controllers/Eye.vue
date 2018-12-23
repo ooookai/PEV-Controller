@@ -4,6 +4,10 @@
     <div id="zone" ref="zone">
       <span class="position">X: {{ position.x }}, Y: {{ position.y }}</span>
     </div>
+    <div id="flipX">
+      <label for="">Flip X</label>
+      <VsSwitch v-model="flipX" color="#26bbae" />
+    </div>
   </div>
 </template>
 
@@ -25,6 +29,7 @@ export default {
     return {
       state: '1',
       position: { x: 0, y: 0 },
+      flipX: false,
     }
   },
 
@@ -65,7 +70,7 @@ export default {
       // console.log({ rx, ry })
 
       this.position = {
-        x: ~~(rx / 2),
+        x: this.flipX ? -~~(rx / 2) : ~~(rx / 2),
         y: ~~(ry / 2),
       }
     })
@@ -81,6 +86,7 @@ h3 {
 
 #zone {
   position: relative;
+  margin: 10px 0px;
 
   width: 100%;
   height: 400px;
@@ -89,6 +95,15 @@ h3 {
 
   .position {
     line-height: 400px;
+  }
+}
+
+#flipX {
+  > * {
+    display: inline-block;
+    line-height: 30px;
+    vertical-align: middle;
+    margin: 0px 5px;
   }
 }
 </style>
