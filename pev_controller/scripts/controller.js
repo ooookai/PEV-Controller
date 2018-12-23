@@ -80,8 +80,9 @@ rosnodejs.initNode('/controller').then(nh => {
         }))
       ),
       flatMap(m => m),
+      map(m => ({ ...m, updatedAt: m.value.updatedAt })),
       groupBy(gb => gb.key),
-      mergeMap(mm => mm.pipe(distinctUntilKeyChanged('value')))
+      mergeMap(mm => mm.pipe(distinctUntilKeyChanged('updatedAt')))
     )
     .subscribe(control => {
       console.log(control)

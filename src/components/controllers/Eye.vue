@@ -33,9 +33,10 @@ export default {
       .pipe(debounceTime(50))
       .subscribe(
         ({ newValue }) => {
-          const position = newValue
+          const { x, y } = newValue
+          const updatedAt = Date.now()
 
-          db.ref('Eye').update(position)
+          db.ref('Eye').update({ x, y, updatedAt })
         },
         err => console.error(err),
         () => console.log('complete')

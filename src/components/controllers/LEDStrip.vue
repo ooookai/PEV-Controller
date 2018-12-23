@@ -35,8 +35,9 @@ export default {
     this.$watchAsObservable('state').subscribe(
       ({ newValue }) => {
         const state = newValue
+        const updatedAt = Date.now()
 
-        db.ref('LEDStrip').update({ state })
+        db.ref('LEDStrip').update({ state, updatedAt })
       },
       err => console.error(err),
       () => console.log('complete')

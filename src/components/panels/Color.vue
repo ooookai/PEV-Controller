@@ -39,8 +39,9 @@ export default {
       .subscribe(
         ({ newValue }) => {
           const { rgba } = newValue
+          const updatedAt = Date.now()
 
-          db.ref(this.remoteKey).update(rgba)
+          db.ref(this.remoteKey).update({ ...rgba, updatedAt })
         },
         err => console.error(err),
         () => console.log('complete')
