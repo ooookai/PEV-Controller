@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox-sw.js");
 
 importScripts(
-  "precache-manifest.e06109a60e6860d4da67db0424b4f103.js"
+  "precache-manifest.ad96e1673c7377b3771d49c542794f19.js"
 );
 
 workbox.core.setCacheNameDetails({prefix: "pev-controller"});
