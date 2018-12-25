@@ -33,6 +33,7 @@ rosnodejs.initNode('/controller').then(nh => {
     led_strip_color: nh.advertise('/led_strip_color', std_msgs.ColorRGBA),
     led_strip_state: nh.advertise('/led_strip_state', std_msgs.String),
     eye_position: nh.advertise('/eye_position', geometry_msgs.Point),
+    eye_led: nh.advertise('/eye_led', std_msgs.String),
   }
 
   const publisher = {
@@ -46,12 +47,17 @@ rosnodejs.initNode('/controller').then(nh => {
       const s = new std_msgs.String({ data: `${state}` })
       pub.led_strip_state.publish(s)
     },
-    Eye: ({ x, y }) => {
+    Eye: ({ x, y, color, state }) => {
       const p = new geometry_msgs.Point()
       p.x = parseInt(x)
       p.y = parseInt(y)
       p.z = 0
       pub.eye_position.publish(p)
+
+      const led = new std_msgs.String({
+        data: `0,0,${state},${color.substring(1)}#`,
+      })
+      pub.eye_led.publish(led)
     },
   }
 
