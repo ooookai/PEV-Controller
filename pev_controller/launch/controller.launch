@@ -1,4 +1,6 @@
 <launch>
   <node pkg="pev_controller" type="controller.js" name="controller" output="screen">
   </node>
+  <node pkg="pev_controller" type="launch_webcam.sh" name="launch_webcam" output="screen">
+  </node>
 </launch>
