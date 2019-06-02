@@ -1,0 +1,5 @@
+<launch>
+  <node pkg="pev_controller" type="controller.js" name="controller" output="screen">
+    <remap from="eye_led" to="led_eye" />
+  </node>
+</launch>
